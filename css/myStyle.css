@@ -5,8 +5,9 @@
 }
 
 div#header {
-  height:200px;
+  height:100px;
   color:#0066CC;
+  padding:80px;
   border-style:none;
   text-align:center;
   /*text-indent:10px;*/
