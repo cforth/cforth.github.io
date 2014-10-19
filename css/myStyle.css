@@ -1,9 +1,10 @@
 div#header {
   color:#0066CC;
-  padding:80px;
+  padding:60px;
   border-style:none;
   text-align:center;
   /*text-indent:10px;*/
+  margin-top:80px;
   margin-bottom:0px;
 }
 
@@ -17,6 +18,18 @@ div#main {
 
 body {
   font-family: \5FAE\8F6F\96C5\9ED1;
+}
+
+input.question {
+  width:600px;
+  height:25px;
+  font-size:20px;
+}
+    
+input.push {
+  padding:5px;
+  width:80px;
+  margin:10px;
 }
 
 p {

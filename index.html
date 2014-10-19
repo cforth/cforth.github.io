@@ -7,13 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 百度站长验证 -->
   <meta name="baidu-site-verification" content="DYjKCS2dRU" />
-  <!-- 新 Bootstrap 核心 CSS 文件 -->
+<!-- 新 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
   <link rel="icon" href="cf.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="cf.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="css/myStyle.css">
@@ -27,6 +26,35 @@
       var s = document.getElementsByTagName("script")[0]; 
       s.parentNode.insertBefore(hm, s);
     })();
+
+    function check(v) {
+      switch(v) {
+        case "zhihu":
+          document.getElementById("searchAction").action="http://www.zhihu.com/search";
+          document.getElementById("searchName").name="q";
+          break;
+        case "guoke":
+          document.getElementById("searchAction").action="http://www.guokr.com/search/all";
+          document.getElementById("searchName").name="wd";
+          break;
+        case "bole":
+          document.getElementById("searchAction").action="http://blog.jobbole.com";
+          document.getElementById("searchName").name="s";
+          break;
+        case "wiki":
+          document.getElementById("searchAction").action="http://zh.wikipedia.org/w/index.php";
+          document.getElementById("searchName").name="search";
+          break;
+        case "segmentfault":
+          document.getElementById("searchAction").action="http://segmentfault.com/search";
+          document.getElementById("searchName").name="q";
+          break;
+        case "21th":
+          document.getElementById("searchAction").action="http://search.21so.com/";
+          document.getElementById("searchName").name="query";
+          break;
+      }
+    }
   </script>
 
   <title>十八哥的个人网站</title>
@@ -38,15 +66,36 @@
   </div>
   
   <div id="main">
-  <img src="web_blog_qr.png" width="238" height="238" title="手机访问十八哥的网络日志">
-  <br />
+    <form>
+      <input type="radio" name="zs" value="zhihu" onclick="check(this.value)" />知乎&nbsp;
+      <input type="radio" name="zs" value="guoke" onclick="check(this.value)" />果壳&nbsp;
+      <input type="radio" name="zs" value="bole" onclick="check(this.value)" />伯乐在线&nbsp;
+      <input type="radio" name="zs" value="wiki" onclick="check(this.value)" />维基百科&nbsp;
+      <input type="radio" name="zs" value="segmentfault" onclick="check(this.value)" />SegmentFault&nbsp;
+      <input type="radio" name="zs" value="21th" onclick="check(this.value)" />21世纪网&nbsp;
+      <br/>
+      <br/>
+    </form>
+
+    <form id="searchAction" name="searchForm" action="http://www.zhihu.com/search" method="get" target="_blank">
+      <input id="searchName" class="question" name="q" type="question" />
+      <br />
+      <input class="push" type="submit" value="知识搜索" />
+      <input class="push" type="submit" value="手气不错" />
+    </form>
+
   <br />
   <ul>
-    <li><a href="http://cfishacker.com/stock/">十八哥的股票池</a> / <a href="http://cfishacker.com/blog/">网络日志</a> / <a href="http://weibo.com/superchaifei">新浪微博</a></li>
-  <br />
-    <li><a href="http://cfishacker.com/weblab/">知识搜索Beta</a> / <a href="https://startpage.com/">Google备用搜索</a></li>
+    <li><a href="http://cfishacker.com/blog/">十八哥的网络日志</a> / <a href="http://cfishacker.com/stock/">十八哥的股票关注</a></li>
   </ul>
   </div>
+
+  <script>
+    if(document.forms.searchForm.q.value == "") {
+      document.forms.searchForm.q.focus();
+    }
+  </script>
+
 </body>
 
 
