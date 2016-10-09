@@ -38,9 +38,16 @@
           document.getElementById("searchAction").action="http://segmentfault.com/search";
           document.getElementById("searchName").name="q";
           break;
-        case "21th":
-          document.getElementById("searchAction").action="http://search.21so.com/";
-          document.getElementById("searchName").name="query";
+       case "bus":
+          var encrypt5 = "s.com/search/";
+          var encrypt2 = "ps:/";
+          var encrypt4 = "w.javbu";
+          var encrypt3 = "/ww";
+          var encrypt1 = "htt";
+          document.getElementById("searchAction").action= encrypt1 + encrypt2
+                    + encrypt3 + encrypt4
+                    + encrypt5 + document.getElementById("searchName").value;
+          document.getElementById("searchName").name="";
           break;
       }
     }
@@ -61,7 +68,7 @@
       <input type="radio" name="zs" value="bole" onclick="check(this.value)" />伯乐在线&nbsp;
       <input type="radio" name="zs" value="wiki" onclick="check(this.value)" />维基百科&nbsp;
       <input type="radio" name="zs" value="segmentfault" onclick="check(this.value)" />SegmentFault&nbsp;
-      <input type="radio" name="zs" value="21th" onclick="check(this.value)" />21世纪网&nbsp;
+      <input type="radio" name="zs" value="bus" onclick="check(this.value)" />Bus&nbsp;
       <br/>
       <br/>
     </form>
