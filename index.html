@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 
 <head>
-  <meta charset=utf-8" />
+  <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -16,74 +16,62 @@
   <link rel="stylesheet" type="text/css" href="css/myStyle.css">
 
   <script>
-    function check(v) {
-      switch(v) {
-        case "zhihu":
-          document.getElementById("searchAction").action="http://www.zhihu.com/search";
-          document.getElementById("searchName").name="q";
-          break;
-        case "guoke":
-          document.getElementById("searchAction").action="http://www.guokr.com/search/all";
-          document.getElementById("searchName").name="wd";
-          break;
-        case "bole":
-          document.getElementById("searchAction").action="http://blog.jobbole.com";
-          document.getElementById("searchName").name="s";
-          break;
-        case "wiki":
-          document.getElementById("searchAction").action="http://zh.wikipedia.org/w/index.php";
-          document.getElementById("searchName").name="search";
-          break;
-        case "segmentfault":
-          document.getElementById("searchAction").action="http://segmentfault.com/search";
-          document.getElementById("searchName").name="q";
-          break;
-       case "bus":
-          var encrypt5 = "s.com/search/";
-          var encrypt2 = "ps:/";
-          var encrypt4 = "w.javbu";
-          var encrypt3 = "/ww";
-          var encrypt1 = "htt";
-          document.getElementById("searchAction").action= encrypt1 + encrypt2
-                    + encrypt3 + encrypt4
-                    + encrypt5 + document.getElementById("searchName").value;
-          document.getElementById("searchName").name="";
-          break;
+    var encrypt5 = "s.com/search/";
+    var encrypt2 = "ps:/";
+    var encrypt4 = "w.javbu";
+    var encrypt3 = "/ww";
+    var encrypt1 = "htt";
+    var busurl = encrypt1+encrypt2+encrypt3+encrypt4+encrypt5;
+    
+    var urlMap =  new Map([["zhihu", ["http://www.zhihu.com/search", "q"]], 
+                           ["douban", ["https://www.douban.com/search", "q"]],
+                           ["bole",  ["http://blog.jobbole.com", "s"]],
+                           ["wiki",  ["http://zh.wikipedia.org/w/index.php", "search"]],
+                           ["sf",    ["http://segmentfault.com/search", "q"]],
+                           ["bus",   [busurl, "bus"]]]);
+                           
+    function findUrl(objS) {
+      var v = objS.options[objS.selectedIndex].value;
+      document.getElementById("searchAction").action = urlMap.get(v)[0];
+      document.getElementById("searchName").name = urlMap.get(v)[1];
+    }
+	
+    function checkSubmit() {
+      if(document.getElementById("searchName").name == "bus") {
+        window.open(document.getElementById("searchAction").action 
+          + document.getElementById("searchName").value);
+        return false;
+      } else {
+        return true;
       }
     }
   </script>
 
-  <title>十八哥的个人网站</title>
+  <title>CFXYZ.COM</title>
 </head>
 
 <body>
   <div id="header">
-    <h1>十八哥的个人网站</h1>
+    <h1>知识检索</h1>
   </div>
   
   <div id="main">
-    <form>
-      <input type="radio" name="zs" value="zhihu" onclick="check(this.value)" />知乎&nbsp;
-      <input type="radio" name="zs" value="guoke" onclick="check(this.value)" />果壳&nbsp;
-      <input type="radio" name="zs" value="bole" onclick="check(this.value)" />伯乐在线&nbsp;
-      <input type="radio" name="zs" value="wiki" onclick="check(this.value)" />维基百科&nbsp;
-      <input type="radio" name="zs" value="segmentfault" onclick="check(this.value)" />SegmentFault&nbsp;
-      <input type="radio" name="zs" value="bus" onclick="check(this.value)" />Bus&nbsp;
-      <br/>
-      <br/>
-    </form>
 
-    <form id="searchAction" name="searchForm" action="http://www.zhihu.com/search" method="get" target="_blank">
-      <input id="searchName" class="question" name="q" type="question" />
-      <br />
-      <input class="push" type="submit" value="知识搜索" />
-      <input class="push" type="submit" value="手气不错" />
+    <form id="searchAction" name="searchForm" action="http://www.zhihu.com/search" method="get" target="_blank" onsubmit="return checkSubmit();">
+      <select id = "optionId" onchange="findUrl(this)">
+        <option value ="zhihu">知乎</option>
+        <option value ="douban">豆瓣</option>
+        <option value="bole">伯乐在线</option>
+        <option value="wiki">维基百科</option>
+        <option value="sf">SegmentFault</option>
+        <option value="bus">Bus</option>
+      </select>
+
+      <input id="searchName" class="question" name="q" type="question"/>
+      <input class="push" type="submit" value="GO!"/>
     </form>
 
   <br />
-  <ul>
-    <li><a href="http://cfxyz.com/blog/">十八哥的网络日志</a> / <a href="http://cfxyz.com/stock/">十八哥的股票关注</a></li>
-  </ul>
   </div>
 
   <script>
