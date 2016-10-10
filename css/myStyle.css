@@ -19,7 +19,10 @@ div#main {
 body {
   font-family: \5FAE\8F6F\96C5\9ED1;
 }
-
+select {
+  height:30px;
+  font-size:20px;
+}
 input.question {
   width:600px;
   height:30px;
@@ -27,9 +30,9 @@ input.question {
 }
     
 input.push {
-  padding:5px;
   width:80px;
-  margin:10px;
+  font-size:20px;
+  height:30px;
 }
 
 p {
