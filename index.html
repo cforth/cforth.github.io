@@ -24,6 +24,7 @@
     var busurl = encrypt1+encrypt2+encrypt3+encrypt4+encrypt5;
     
     var urlMap =  new Map([["zhihu", ["http://www.zhihu.com/search", "q"]], 
+                           ["wencai",["http://www.iwencai.com/stockpick/search", "w"]],
                            ["douban", ["https://www.douban.com/search", "q"]],
                            ["bole",  ["http://blog.jobbole.com", "s"]],
                            ["wiki",  ["http://zh.wikipedia.org/w/index.php", "search"]],
@@ -60,6 +61,7 @@
     <form id="searchAction" name="searchForm" action="http://www.zhihu.com/search" method="get" target="_blank" onsubmit="return checkSubmit();">
       <select id = "optionId" onchange="findUrl(this)">
         <option value ="zhihu">知乎</option>
+        <option value ="wencai">问财</option>
         <option value ="douban">豆瓣</option>
         <option value="bole">伯乐在线</option>
         <option value="wiki">维基百科</option>
