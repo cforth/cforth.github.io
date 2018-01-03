@@ -15,21 +15,14 @@
   <link rel="shortcut icon" href="favorite.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="css/myStyle.css">
 
-  <script>
-    var encrypt5 = "s.com/search/";
-    var encrypt2 = "ps:/";
-    var encrypt4 = "w.javbu";
-    var encrypt3 = "/ww";
-    var encrypt1 = "htt";
-    var busurl = encrypt1+encrypt2+encrypt3+encrypt4+encrypt5;
-    
+  <script>   
     var urlMap =  new Map([["zhihu", ["http://www.zhihu.com/search", "q"]], 
                            ["wencai",["http://www.iwencai.com/stockpick/search", "w"]],
                            ["douban", ["https://www.douban.com/search", "q"]],
                            ["bole",  ["http://blog.jobbole.com", "s"]],
                            ["wiki",  ["http://zh.wikipedia.org/w/index.php", "search"]],
                            ["sf",    ["http://segmentfault.com/search", "q"]],
-                           ["bus",   [busurl, "bus"]]]);
+						   ["blog",  ["http://cfxyz.com/blog/pages/search_page.html#stq=", "stq"]]]);
                            
     function findUrl(objS) {
       var v = objS.options[objS.selectedIndex].value;
@@ -38,9 +31,8 @@
     }
 	
     function checkSubmit() {
-      if(document.getElementById("searchName").name == "bus") {
-        window.open(document.getElementById("searchAction").action 
-          + document.getElementById("searchName").value);
+      if(document.getElementById("optionId").value == "blog") {
+        window.open(document.getElementById("searchAction").action + document.getElementById("searchName").value);
         return false;
       } else {
         return true;
@@ -66,7 +58,7 @@
         <option value="bole">伯乐在线</option>
         <option value="wiki">维基百科</option>
         <option value="sf">SegmentFault</option>
-        <option value="bus">Bus</option>
+		<option value="blog">No.18博客</option>
       </select>
 
       <input id="searchName" class="question" name="q" type="question"/>
