@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="icon" href="favorite.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favorite.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="css/myStyle.css">
+
+  <script src="./js/readJSON.js"></script>
+  <script>   
+    function searchDict(objS) {
+      var v = document.getElementById("searchDictName").value;
+      // console.log(v);
+      // console.log(dict[v]);
+      if(dict[v]) {
+        document.getElementById("result").innerHTML = v + "  :  " +  dict[v];
+      } else {
+        document.getElementById("result").innerHTML = v + "  :  " + "没有找到该单词";
+      }
+    }
+  </script>
+
+  <title>小学英语词典</title>
+</head>
+
+<body>
+  <div id="header">
+    <h1>小学英语词典</h1>
+  </div>
+
+  <div id="main">
+      <input id="searchDictName" class="question"/>
+      <button class="push" onclick="searchDict()">查询</button>
+    </form>
+
+    <br />
+  </div>
+
+  <h2><div id="result"></div></h2>
+
+</body>
+
+
+</html>

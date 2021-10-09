@@ -15,6 +15,15 @@ div#main {
   min-height:200px;
 }
 
+div#result {
+  color:#0066CC;
+  padding:60px;
+  border-style:none;
+  text-align:center;
+  /*text-indent:10px;*/
+  margin-bottom:0px;
+}
+
 
 body {
   font-family: \5FAE\8F6F\96C5\9ED1;
@@ -33,6 +42,14 @@ input.push {
   width:80px;
   font-size:20px;
   height:30px;
+}
+
+button.push {
+  width:80px;
+  font-size:20px;
+  height:30px;
+  color:#0066CC;
+  height:auto!important;
 }
 
 p {
